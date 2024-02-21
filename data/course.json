@@ -1,0 +1,37 @@
+[{
+    "name": "Schuppe LLC",
+    "description": "Morbi porttitor lorem id ligula. Suspendisse ornare fusce consequat. Nulla nisl. Nunc nisl.",
+    "rating": 5,
+    "CategoryId": 3
+  }, {
+    "name": "Spencer Hoppe",
+    "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis",
+    "rating": 4,
+    "CategoryId":2
+  }, {
+    "name": "Flatley-Franecki",
+    "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+    "rating": 6,
+    "CategoryId":6
+  }, {
+    "name": "Glover Sons",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien",
+    "rating": 2,
+    "CategoryId":1
+  }, {
+    "name": "Buckridge",
+    "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+    "rating": 8,
+    "CategoryId":2
+  }, {
+    "name": "Brekke-Von",
+    "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
+    "rating": 4,
+    "CategoryId":5
+  }, {
+    "name": "Schmeler Group",
+    "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",
+    "rating": 8,
+    "CategoryId":2
+  }
+]
