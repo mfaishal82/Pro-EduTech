@@ -1,0 +1,29 @@
+[
+    {
+        "username": "admin",
+        "password": 123,
+        "email": "admin@mail.com",
+        "role": "admin"
+    },
+    {
+        "username": "admin2",
+        "password": 123,
+        "email": "admin2@mail.com",
+        "role": "admin"
+      }, {
+        "username": "gjeakins1",
+        "password": "iK2<Zn_1s$",
+        "email": "ccogman1@fc2.com",
+        "role": "user"
+      }, {
+        "username": "cminucci2",
+        "password": "dT4@dIy9AEWm",
+        "email": "cisham2@google.cn",
+        "role": "user"
+      }, {
+        "username": "bkitchen3",
+        "password": "zS8>KutPTa,`\\",
+        "email": "tsipson3@seattletimes.com",
+        "role": "user"
+      }
+]
