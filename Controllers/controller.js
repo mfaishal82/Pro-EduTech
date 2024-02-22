@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 const { formatDate } = require('../helper/formatter')
 
 class Controller{
+
     static landing(req, res){
         res.render('landingPage')
     }
@@ -29,7 +30,6 @@ class Controller{
     }
 
     static async postLogin(req, res){
-        // console.log(req.session)
         try {
             const { username, password } = req.body
 
@@ -71,7 +71,6 @@ class Controller{
                 },
                 order : [['createdAt', 'asc']]
             })
-            console.log(course)
             res.render('home', {course, deleted})
         } catch (error) {
             console.log(error)
@@ -97,8 +96,6 @@ class Controller{
                 },
                 order : [['createdAt', 'asc']]
             })
-            // console.log(profile)
-            formatDate
             res.render('profile', {profile, formatDate, course})
         } catch (error) {
             console.log(error)
@@ -117,7 +114,6 @@ class Controller{
 
     static async postProfile(req, res) {
         try {
-            // console.log(req.body)
             const id = req.session.UserId
             const {firstName, lastName, dateOfBirth, gender} = req.body
             await Profile.create({firstName, lastName, dateOfBirth, gender, UserId: id}, {
@@ -134,7 +130,6 @@ class Controller{
         const {id} = req.params
         try {
             let profile = await Profile.findByPk(id)
-            // console.log(profile)
             res.render('editProfile', {profile})         
         } catch (error) {
             console.log(error)
@@ -167,7 +162,6 @@ class Controller{
     }
 
     static async postCourse(req, res){
-        // console.log(req.body)
         try {
             
             const {name, description, imageURL, CategoryId} = req.body
