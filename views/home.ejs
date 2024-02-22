@@ -3,44 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Home</title>
+    <title>Courses</title>
 </head>
 <body>
-    <h1>List Courses</h1>
-    <a href="/profile" type="button" class="btn btn-primary">Go to Profile</a>
-    <a href="/addCourse" type="button" class="btn btn-warning">Add Course</a>
-    <a href="/logout" type="button" class="btn btn-danger">Logout</a>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid d-flex flex-column align-items-center mt-3">
+          <span class="navbar-brand fs-3 fw-bold mb-0 h1">Come teach with us</span>
+        </div>
+    </nav> <br> <br>
+    <div class="d-flex justify-content-around">
+        <a href="/profile" type="button" class="btn btn-primary">Go to Profile</a>
+        <a href="/addCourse" type="button" class="btn btn-warning">Add Course</a>
+        <a href="/logout" type="button" class="btn btn-danger">Log out</a>
+    </div> <br> <br>
+
+    <!-- Notif Deleted -->
     <% if (deleted) { %>
-        <p style="color: red;"> <%= deleted %></p>
+        <p style="color: red;"> <%= deleted %> Packges Courses Been Deleted</p>
     <% } %>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Kategori</th>
-                <th>Deskripsi</th>
-                <th>Rating</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% course.forEach((each, index) => { %>
-             <tr>
-                <td><%= index+1 %></td>
-                <td><img src="<%= each.imageURL %>" style="width: 50%;" alt=""></td>
-                <td><%= each.name %></td>
-                <td><%= each.Category.name %></td>
-                <td><%= each.description %></td>
-                <td><%= each.rating %></td>
-                <td><a href="/takeCourse/<%= each.id %>" type="button" class="btn btn-warning"> Take Course</a>
-                    <a href="/deleteCourse/<%= each.id %>" type="button" class="btn btn-danger"> Delete Course</a></td>
-             </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    
+    <!-- Courses Cards -->
+    <div class="container-fluid">
+        <div class="d-flex align-content-around flex-wrap">
+            <% course.forEach(el => { %>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= el.imageURL %>" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= el.name %></h3>
+                        <h4 class="card-title"><%= el.Category.name %></h4>
+                        <p class="card-text"><%= el.description %></p>
+                        <ul class="list-group list-group-flush">
+                            <label>Rating Course :</label>
+                            <div>
+                                <%= el.rating %>
+                            </div>
+                        </ul>
+                        <div class="card-body">
+                            <a href="/takeCourse/<%= el.id %>" type="button" class="btn btn-outline-warning"> Take Course</a>
+                            <a href="/deleteCourse/<%= el.id %>" type="button" class="btn btn-outline-danger"> Delete Course</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>    
+        </div>
+    </div>    
+    <%- include('partials/_boostraps') %>
 </body>
 </html>

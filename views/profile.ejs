@@ -3,51 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Profile</title>
 </head>
 <body>
-    <h1>Your Profile</h1>
-    <a href="/logout" type="button" class="btn btn-danger">Logout</a>
-    <!-- Untuk mengecek apakah sudah ada profile atau belum -->
-    <% if (!profile) { %>
-        <a href="/addProfile" type="button" class="btn btn-primary">Add Profile</a>
-    <% } else { %>
-        <a href="/editProfile/<%= profile.id %>" type="button" class="btn btn-warning">Edit Profile</a>
-    <div>
-        Name : <%= profile.fullname() %> <br>
-        Date of Birth : <%= formatDate(profile.dateOfBirth) %> <br>
-        gender : <%= profile.gender %>
+    <div class="container-fluid d-flex flex-column align-items-center mt-3">
+        <h1 class="my-3">Your Courses Dashboard Profile</h1>
+    </div> <br> <br>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-end">
+         <a href="/logout" type="button" class="btn btn-danger">Log out</a>
+        </div> <br> <br>
+        <div class="d-flex justify-content-between">
+            <!-- Untuk mengecek apakah sudah ada profile atau belum -->
+            <% if (!profile) { %>
+                <a href="/addProfile" type="button" class="btn btn-primary">Add Profile</a>
+            <% } else { %>
+            <div class="container-fluid">
+                <table class="table">
+                    <thead>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th class="text-center">Action</td>
+                    </thead>
+                        <tbody>
+                            <th><%= profile.fullname() %></td>
+                            <td><%= formatDate(profile.dateOfBirth) %></td>
+                            <td><%= profile.gender %></td>
+                            <td class="text-center">
+                                <div class="row">
+                                    <a href="/editProfile/<%= profile.id %>" type="button" class="btn btn-warning">Edit Profile</a>
+                                </div>
+                            </td>
+                        </tbody>
+                </table>
+            </div>    
+            <% } %>
+        </div>
     </div>
-    <% } %>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Kategori</th>
-                <th>Deskripsi</th>
-                <th>Rating</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% course.forEach((each, index) => { %>
-             <tr>
-                <td><%= index+1 %></td>
-                <td><img src="<%= each.imageURL %>" style="width: 50%;" alt=""></td>
-                <td><%= each.name %></td>
-                <td><%= each.Category.name %></td>
-                <td><%= each.description %></td>
-                <td><%= each.rating %></td>
-                <td><a href="/addRate/<%= each.id %>" type="button" class="btn btn-warning"> + Rating</a>
-                    <a href="/decreaseRate/<%= each.id %>" type="button" class="btn btn-danger"> - Rating</a></td>
-             </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    <br> <br>
+    <!-- Courses Cards -->
+    <div class="container-fluid">
+        <div class="d-flex align-content-around flex-wrap">
+            <% course.forEach(el => { %>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= el.imageURL %>" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= el.name %></h3>
+                        <h4 class="card-title"><%= el.Category.name %></h4>
+                        <p class="card-text"><%= el.description %></p>
+                        <ul class="list-group list-group-flush">
+                            <label>Rating Course :</label>
+                            <div>
+                                <%= el.rating %>
+                            </div>
+                        </ul>
+                        <div class="card-body">
+                            <a href="/addRate/<%= el.id %>" type="button" class="btn btn-outline-warning"> (+) Rating Course</a>
+                            <a href="/decreaseRate/<%= el.id %>" type="button" class="btn btn-outline-danger"> (-) Rating Course</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>    
+        </div>
+    </div>
+    <%- include('partials/_boostraps') %>
 </body>
 </html>
