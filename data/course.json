@@ -3,42 +3,49 @@
     "description": "Morbi porttitor lorem id ligula. Suspendisse ornare fusce consequat. Nulla nisl. Nunc nisl.",
     "rating": 5,
     "CategoryId": 3,
-    "imageURL": "https://www.cultofpedagogy.com/wp-content/uploads/2020/06/Backward-Design-Pin-773x1024.png"
+    "imageURL": "https://www.cultofpedagogy.com/wp-content/uploads/2020/06/Backward-Design-Pin-773x1024.png",
+    "availability": true
   }, {
     "name": "Spencer Hoppe",
     "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis",
     "rating": 4,
     "CategoryId":2,
-    "imageURL": "https://i.ytimg.com/vi/TMubSggUOVE/maxresdefault.jpg"
+    "imageURL": "https://i.ytimg.com/vi/TMubSggUOVE/maxresdefault.jpg",
+    "availability": true
   }, {
     "name": "Flatley-Franecki",
     "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
     "rating": 6,
     "CategoryId":6,
-    "imageURL": "https://www.osidgeschool.org/wp-content/uploads/2021/06/Science-principles-1024x724.png"
+    "imageURL": "https://www.osidgeschool.org/wp-content/uploads/2021/06/Science-principles-1024x724.png",
+    "availability": true
   }, {
     "name": "Glover Sons",
     "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien",
     "rating": 2,
     "CategoryId":1,
-    "imageURL": "https://assets.bigcartel.com/product_images/242106770/Slide1.JPG?auto=format&fit=max&w=1800"
+    "imageURL": "https://assets.bigcartel.com/product_images/242106770/Slide1.JPG?auto=format&fit=max&w=1800",
+    "availability": true
   }, {
     "name": "Buckridge",
     "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
     "rating": 8,
     "CategoryId":2,
-    "imageURL": "https://media.slidesgo.com/storage/2480679/conversions/0-funny-math-lesson-thumb.jpg"
+    "imageURL": "https://media.slidesgo.com/storage/2480679/conversions/0-funny-math-lesson-thumb.jpg",
+    "availability": true
   }, {
     "name": "Brekke-Von",
     "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in ultrices",
     "rating": 4,
     "CategoryId":5,
-    "imageURL": "https://i.ytimg.com/vi/enJRIdmVHRE/sddefault.jpg"
+    "imageURL": "https://i.ytimg.com/vi/enJRIdmVHRE/sddefault.jpg",
+    "availability": true
   }, {
     "name": "Schmeler Group",
     "description": "Fusce consequat. Nulla nisl. Nunc nisl.Duis bibendum, felis sed interdum venenatis,  pede justo eu massa. Donec dapibus.",
     "rating": 8,
     "CategoryId":2,
-    "imageURL": "https://storage.googleapis.com/ibw-blog/media/4f/29a628ea91de7cb798fb912ae7ced6.jpeg"
+    "imageURL": "https://storage.googleapis.com/ibw-blog/media/4f/29a628ea91de7cb798fb912ae7ced6.jpeg",
+    "availability": true
   }
 ]
