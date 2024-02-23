@@ -9,10 +9,12 @@
 <div class="container-fluid d-flex flex-column align-items-center mt-3">
     <h1 class="my-3">Sign up and start learning</h1>
     <% if (error) { %>
+        <% error.split(',').forEach(each => { %>
         <div class="alert alert-warning alert-dismissible fade show">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Warning!</strong> <%= error %>.
+            <strong>Warning!</strong> <%= each %>.
           </div>
+          <% }) %>
     <% } %>
     <form class="mt-3 col-5" action="/register" method="post">
         <div class="mb-3">
