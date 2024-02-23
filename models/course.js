@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         through: models.UserCourse
       })
     }
+
+    static greetUser() {
+      return 'Welcome! Choose a course that interests you';
+    }
+
   }
   Course.init({
     name: DataTypes.STRING,

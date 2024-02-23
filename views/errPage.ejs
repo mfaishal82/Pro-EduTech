@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <div class="container" style="text-align: center; margin-top: 15%;">
+        <h1>Error!</h1>
+        <h2>Oops, something's wrong here...</h2>
+        <h3>
+            <% if (error) { %>
+             <p style="color: red;"><%= error.message %></p>
+            <% } %>
+        </h3>
+        <a href = “javascript:history.back()”><button type="button" class="btn btn-secondary"> Back </button></a>
+    </div>
+    <%- include('partials/_boostraps') %>
+</body>
+</html>

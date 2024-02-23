@@ -8,7 +8,14 @@
 <body>
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
         <h1 class="my-3">Add your profile course</h1>
-
+        <% if (error) { %>
+            <% error.split(',').forEach(each => { %>
+            <div class="alert alert-warning alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Warning!</strong> <%= each %>.
+              </div>
+              <% }) %>
+        <% } %>
         <form class="mt-3 col-5" action="/addProfile" method="post">
             <div class="mb-3">
                 <label class="form-label">First Name</label>

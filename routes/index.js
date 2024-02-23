@@ -1,5 +1,5 @@
 const express = require('express')
-const { home, register, postRegister, login, postLogin, landing, addProfile, profile, postProfile, editForm, postEdit, addCourseForm, postCourse, deleteCourse, changeToFalse, incrRate, decrRate, logout } = require('../Controllers/controller')
+const { home, register, postRegister, login, postLogin, landing, addProfile, profile, postProfile, editForm, postEdit, addCourseForm, postCourse, deleteCourse, changeToFalse, incrRate, decrRate, logout, getInvoice, userCourseList } = require('../Controllers/controller')
 const { isLoggedIn, isAdmin } = require('../Middlewares/middleware')
 const router = express.Router()
 
@@ -32,11 +32,14 @@ router.post('/addCourse', isAdmin, postCourse)
 router.get('/addRate/:id', incrRate)
 router.get('/decreaseRate/:id', decrRate)
 
+router.get('/listUserCourse', isAdmin, userCourseList)
+
 //delete course
 router.get('/deleteCourse/:id', isAdmin, deleteCourse)
 
 //read profile
 router.get('/profile', profile)
+router.get('/profile/getInvoice', getInvoice)
 
 //add profile
 router.get('/addProfile', addProfile)

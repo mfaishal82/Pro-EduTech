@@ -14,24 +14,42 @@
     <div class="d-flex justify-content-around">
         <a href="/profile" type="button" class="btn btn-primary">Go to Profile</a>
         <a href="/addCourse" type="button" class="btn btn-warning">Add Course</a>
+        <a href="/listUserCourse" type="button" class="btn btn-warning">List User-Course</a>
         <a href="/logout" type="button" class="btn btn-danger">Log out</a>
     </div> <br> <br>
-
+    <form action="" style="margin-left: 10%;">
+        <input type="search" class="form-control" style="width: 400px;" name="search" id="" placeholder="<%= search ? search : 'Search course name...' %>">
+        <button class="btn btn-outline-warning" type="submit">🔎</button>
+    </form>
     <!-- Notif Deleted -->
     <div class="d-flex justify-content-center">
         <% if (deleted) { %>
             <p style="color: red;"> <%= deleted %> PACKAGE COURSES HAS BEEN DELETED</p>
         <% } %>
     </div>
+    <% if (error) { %>
+        <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Warning!</strong> <%= error %>.
+          </div>
+    <% } %>
     <!-- Courses Cards -->
-    <div class="container-fluid">
+    <div class="container" style="text-align: center; margin: 3%;">
+        <h2><strong><%= greeting %></strong></h2>
+    </div>
+    <!-- <div>
+        See by Category:
+        <a href="<%#= category %>"  type="button" class="btn btn-outline-danger"> Kategori </a>
+    </div> -->
+    <div class="container-fluid" style="align-content: center;">
         <div class="d-flex align-content-around flex-wrap">
             <% course.forEach(el => { %>
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; margin: 2%;">
                     <img src="<%= el.imageURL %>" class="card-img-top">
                     <div class="card-body">
+                        <input type="hidden" name="<%= id %>">
                         <h3 class="card-title"><%= el.name %></h3>
-                        <h4 class="card-title"><%= el.Category.name %></h4>
+                        <h4 class="card-title">#<%= el.Category.name %></h4>
                         <p class="card-text"><%= el.description %></p>
                         <ul class="list-group list-group-flush">
                             <label>Rating Course :</label>
