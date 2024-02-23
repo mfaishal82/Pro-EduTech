@@ -92,9 +92,6 @@ class Controller{
                 include: {
                     model: Category
                 },
-                // include: {
-                //     model: UserCourse
-                // },
                 where : {
                     availability : true
                 },
@@ -110,16 +107,10 @@ class Controller{
             }
 
             let greeting = Course.greetUser()
-
             let category = await Category.findAll()
-
-            // let test = await User.findAll({
-            //     include: Course
-            // })
             let course = await Course.findAll(options)
-            // console.log(req.body)
+
             res.render('home', {course, deleted, search, error, id, greeting, category})
-            // res.send(test)
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -223,9 +214,9 @@ class Controller{
 
     static async postCourse(req, res){
         try {
-            
             const {name, description, imageURL, CategoryId} = req.body
             await Course.create({name, description, imageURL, CategoryId })
+
             res.redirect('/courses')
         } catch (error) {
             console.log(error)
@@ -251,23 +242,10 @@ class Controller{
         }
     }
 
-    static async userGetCourse(req, res){
-        try {
-            
-        } catch (error) {
-            console.log(error)
-            res.send(error.message)
-        }
-    }
-
     static async changeToFalse(req, res) {
         const { id } = req.params
         try {
-            let course = await Course.findByPk(id)
-
-            // if(course.rating === 0){
-                await Course.update({availability: false}, {where : { id }})
-            // }
+            await Course.update({availability: false}, {where : { id }})
             
             res.redirect('/courses')
         } catch (error) {
@@ -318,8 +296,8 @@ class Controller{
                 }
             })
             let data = {
-                apiKey: "GjSGR1qkC7GgHDZjalNu1SboXgHvl1x1U51p84PHFDXzxq22XYNGXeeEC7SztQng", // Please register to receive a production apiKey: https://app.budgetinvoice.com/register
-                mode: "development", // Production or development, defaults to production
+                apiKey: "GjSGR1qkC7GgHDZjalNu1SboXgHvl1x1U51p84PHFDXzxq22XYNGXeeEC7SztQng", 
+                mode: "development", 
                 products: [
                     {
                         quantity: course.length,
@@ -331,7 +309,6 @@ class Controller{
             }
             
             const invoice = await easyinvoice.createInvoice(data)
-            // console.log(invoice)
             await fs.writeFileSync('invoice.pdf', invoice.pdf, 'base64')
             res.redirect('/profile')
         } catch (error) {
@@ -352,8 +329,6 @@ class Controller{
                     }
                 }
             })
-            // console.log(list)
-            // res.render('listUserCourse', {list})
             res.send(list)
         } catch (error) {
             console.log(error)

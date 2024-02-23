@@ -17,10 +17,13 @@
         <a href="/listUserCourse" type="button" class="btn btn-warning">List User-Course</a>
         <a href="/logout" type="button" class="btn btn-danger">Log out</a>
     </div> <br> <br>
-    <form action="" style="margin-left: 10%;">
-        <input type="search" class="form-control" style="width: 400px;" name="search" id="" placeholder="<%= search ? search : 'Search course name...' %>">
-        <button class="btn btn-outline-warning" type="submit">🔎</button>
-    </form>
+    <div class="d-flex mb-3">
+        <form action="" style="margin-left: 10%;">
+            <input type="search" class="form-control" style="width: 400px;" name="search" placeholder="<%= search ? search : 'Search course name...' %>">
+            <button class="btn btn-outline-warning" type="submit">🔎</button>
+        </form>
+    </div>
+    
     <!-- Notif Deleted -->
     <div class="d-flex justify-content-center">
         <% if (deleted) { %>
@@ -37,10 +40,7 @@
     <div class="container" style="text-align: center; margin: 3%;">
         <h2><strong><%= greeting %></strong></h2>
     </div>
-    <!-- <div>
-        See by Category:
-        <a href="<%#= category %>"  type="button" class="btn btn-outline-danger"> Kategori </a>
-    </div> -->
+
     <div class="container-fluid" style="align-content: center;">
         <div class="d-flex align-content-around flex-wrap">
             <% course.forEach(el => { %>

@@ -23,17 +23,43 @@ module.exports = (sequelize, DataTypes) => {
 
   }
   Course.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'name is required'},
+      notEmpty: {msg: 'name is required'}
+      }
+    },
+    description:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'description is required'},
+      notEmpty: {msg: 'description is required'}
+      }
+    },
     availability: DataTypes.BOOLEAN,
     CategoryId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "Categories"
+      },
+      validate: {
+        notNull: {msg: 'Category is required'},
+      notEmpty: {msg: 'Category is required'}
       }
     },
     rating: DataTypes.INTEGER,
-    imageURL: DataTypes.STRING
+    imageURL: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'Image Url is required'},
+      notEmpty: {msg: 'Image Url is required'}
+      }
+    },
   }, {
     sequelize,
     modelName: 'Course',
