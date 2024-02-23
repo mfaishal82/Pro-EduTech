@@ -58,12 +58,18 @@
                         <ul class="list-group list-group-flush">
                             <label>Rating Course :</label>
                             <div>
-                                <%= el.rating %>
+                                <%= el.rating %> ⭐
                             </div>
                         </ul>
                         <div class="card-body">
+                            <% if (el.rating === 0) { %>
+                                <a href="/addRate/<%= el.id %>" type="button" class="btn btn-outline-warning"> (+) Rating Course</a>
+                            <% } else if (el.rating === 10) {%>
+                                <a href="/decreaseRate/<%= el.id %>" type="button" class="btn btn-outline-danger"> (-) Rating Course</a>
+                            <% } else { %>
                             <a href="/addRate/<%= el.id %>" type="button" class="btn btn-outline-warning"> (+) Rating Course</a>
                             <a href="/decreaseRate/<%= el.id %>" type="button" class="btn btn-outline-danger"> (-) Rating Course</a>
+                            <% } %>
                         </div>
                     </div>
                 </div>
